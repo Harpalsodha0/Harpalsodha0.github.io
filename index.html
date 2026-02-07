@@ -131,12 +131,33 @@ text-align:center;
 <p>⭐ 4.7 Rating | 65+ Reviews</p>
 
 <div>
-<button class="btn">Book Table</button>
+<butto class="btn"</button><button class="btn" onclick="openBooking()">Book Table</button>
 <button class="btn">Order Online</button>
 <button class="btn" onclick="call()">Call Now</button>
 </div>
 </div>
+<!-- BOOKING FORM -->
+<div id="bookingForm" style="display:none; padding:40px; background:#fff;">
 
+<h2>Table Booking</h2>
+
+<input type="text" id="name" placeholder="Your Name"><br><br>
+
+<input type="tel" id="phone" placeholder="Phone Number"><br><br>
+
+<input type="date" id="date"><br><br>
+
+<input type="time" id="time"><br><br>
+
+<input type="number" id="people" placeholder="Number of People"><br><br>
+
+<button class="btn" onclick="submitBooking()">Submit Booking</button>
+<button class="btn" onclick="closeBooking()">Close</button>
+
+<p id="bookingMsg"></p>
+
+</div>
+  
 <!-- ABOUT -->
 <section id="about">
 <h2>About Us</h2>
@@ -262,9 +283,31 @@ src="https://maps.google.com/maps?q=Jaipur&t=&z=13&ie=UTF8&iwloc=&output=embed">
 
 <script>
 function call(){
-window.location.href="tel:+919999999999";
+window.location.href="tel:+911111111111111";
 }
 </script>
+function openBooking(){
+document.getElementById("bookingForm").style.display="block";
+window.scrollTo(0, document.getElementById("bookingForm").offsetTop);
+}
+
+function closeBooking(){
+document.getElementById("bookingForm").style.display="none";
+}
+
+function submitBooking(){
+
+var name = document.getElementById("name").value;
+var phone = document.getElementById("phone").value;
+
+if(name==="" || phone===""){
+document.getElementById("bookingMsg").innerHTML="Please fill all details";
+return;
+}
+
+document.getElementById("bookingMsg").innerHTML=
+"✅ Booking Request Submitted! We will contact you soon.";
+}
 
 </body>
 </html>
