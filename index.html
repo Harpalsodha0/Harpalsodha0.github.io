@@ -10,15 +10,17 @@
 
 body{
 margin:0;
-font-family:Arial;
-background:#f5f1e8;
+font-family:'Segoe UI';
+background:#f8f5f0;
 }
 
 /* NAVBAR */
+
 nav{
-position:sticky;
+position:fixed;
+width:100%;
 top:0;
-background:#3b2f2f;
+background:#2c1f14;
 padding:15px;
 text-align:center;
 z-index:1000;
@@ -32,76 +34,106 @@ font-weight:bold;
 }
 
 nav a:hover{
-color:#d4af37;
+color:#d4a373;
 }
 
 /* HERO */
+
 .hero{
-height:90vh;
-background:linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
-url("https://images.unsplash.com/photo-1509042239860-f550ce710b93");
-background-size:cover;
-color:white;
+height:100vh;
+background:url("https://images.unsplash.com/photo-1509042239860-f550ce710b93") center/cover;
 display:flex;
-flex-direction:column;
-justify-content:center;
 align-items:center;
+justify-content:center;
 text-align:center;
-padding:20px;
+color:white;
 }
 
-.hero h1{
-font-size:45px;
+.hero-content{
+background:rgba(0,0,0,0.6);
+padding:40px;
+border-radius:10px;
 }
 
 .btn{
-background:#6f4e37;
+background:#d4a373;
 color:white;
 padding:12px 25px;
-margin:8px;
 border:none;
-border-radius:5px;
+margin:8px;
 cursor:pointer;
+border-radius:5px;
 }
 
 .btn:hover{
-background:#3b2f2f;
+background:#b08968;
 }
 
-/* SECTION */
+/* SECTIONS */
+
 section{
-padding:50px 20px;
+padding:70px 20px;
 text-align:center;
 }
 
 h2{
-color:#3b2f2f;
+color:#2c1f14;
 }
 
-/* MENU GRID */
+/* GRID */
+
 .grid{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:20px;
+gap:25px;
 }
 
 .card{
 background:white;
 padding:20px;
-border-radius:10px;
-box-shadow:0 2px 10px rgba(0,0,0,0.1);
+border-radius:12px;
+box-shadow:0 4px 15px rgba(0,0,0,0.1);
 }
 
-/* CONTACT */
-iframe{
+/* GALLERY */
+
+.gallery img{
 width:100%;
-height:300px;
-border:0;
+border-radius:10px;
+}
+
+/* BOOKING POPUP */
+
+.booking{
+display:none;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.7);
+justify-content:center;
+align-items:center;
+}
+
+.booking-box{
+background:white;
+padding:30px;
+border-radius:10px;
+width:300px;
+text-align:center;
+}
+
+input, select{
+width:90%;
+padding:10px;
+margin:8px;
 }
 
 /* FOOTER */
+
 footer{
-background:#3b2f2f;
+background:#2c1f14;
 color:white;
 padding:20px;
 text-align:center;
@@ -117,7 +149,6 @@ text-align:center;
 <a href="#home">Home</a>
 <a href="#about">About</a>
 <a href="#menu">Menu</a>
-<a href="#services">Services</a>
 <a href="#gallery">Gallery</a>
 <a href="#reviews">Reviews</a>
 <a href="#contact">Contact</a>
@@ -125,46 +156,23 @@ text-align:center;
 
 <!-- HERO -->
 <div class="hero" id="home">
+<div class="hero-content">
 <h1>The Roots Cafe And Dine In</h1>
 <p>Premium Coffee, Delicious Food & Vibrant Cafe Experience</p>
-
 <p>⭐ 4.7 Rating | 65+ Reviews</p>
 
-<div>
-<butto class="btn"</button><button class="btn" onclick="openBooking()">Book Table</button>
-<button class="btn">Order Online</button>
-<button class="btn" onclick="call()">Call Now</button>
+<button class="btn" onclick="openBooking()">Book Table</button>
+<button class="btn" onclick="orderFood()">Order Online</button>
 </div>
 </div>
-  <!-- BOOKING FORM -->
-<div id="bookingForm" style="display:none; padding:40px; background:#fff;">
 
-<h2>Table Booking</h2>
-
-<input type="text" id="name" placeholder="Your Name"><br><br>
-
-<input type="tel" id="phone" placeholder="Phone Number"><br><br>
-
-<input type="date" id="date"><br><br>
-
-<input type="time" id="time"><br><br>
-
-<input type="number" id="people" placeholder="Number of People"><br><br>
-
-<button class="btn" onclick="sendWhatsApp()">Book via WhatsApp</button>
-<button class="btn" onclick="closeBooking()">Close</button>
-
-</div>
-  
-
-  
 <!-- ABOUT -->
 <section id="about">
 <h2>About Us</h2>
 <p>
-The Roots Cafe And Dine In is a premium café located in Jaipur offering
-high-quality coffee, delicious food and relaxing ambience.
-Pet friendly environment perfect for meetings, celebrations and dining.
+Premium cafe located in Jaipur offering high quality coffee,
+delicious food and vibrant relaxing ambience.
+Pet friendly dining and perfect for meetings, celebrations & late night dining.
 </p>
 </section>
 
@@ -176,56 +184,22 @@ Pet friendly environment perfect for meetings, celebrations and dining.
 
 <div class="card">
 <h3>Coffee & Beverages</h3>
-<p>Espresso – ₹150</p>
-<p>Cappuccino – ₹180</p>
-<p>Cold Coffee – ₹220</p>
-</div>
-
-<div class="card">
-<h3>Breakfast</h3>
-<p>Sandwich – ₹180</p>
-<p>Pancakes – ₹220</p>
+<p>Espresso ₹150</p>
+<p>Cappuccino ₹180</p>
+<p>Cold Coffee ₹220</p>
 </div>
 
 <div class="card">
 <h3>Meals</h3>
-<p>Pasta – ₹320</p>
-<p>Pizza – ₹350</p>
+<p>Pasta ₹320</p>
+<p>Pizza ₹350</p>
+<p>Burger ₹280</p>
 </div>
 
 <div class="card">
 <h3>Desserts</h3>
-<p>Brownie – ₹190</p>
-<p>Cheesecake – ₹250</p>
-</div>
-
-</div>
-</section>
-
-<!-- SERVICES -->
-<section id="services">
-<h2>Services</h2>
-
-<div class="grid">
-
-<div class="card">
-<h3>Party Hosting</h3>
-<p>Celebrate birthdays and events with us.</p>
-</div>
-
-<div class="card">
-<h3>Outdoor Seating</h3>
-<p>Relax in premium outdoor cafe ambience.</p>
-</div>
-
-<div class="card">
-<h3>Corporate Meetings</h3>
-<p>Perfect meeting environment.</p>
-</div>
-
-<div class="card">
-<h3>Pet Friendly</h3>
-<p>Bring your pets and enjoy dining.</p>
+<p>Brownie ₹190</p>
+<p>Cheesecake ₹250</p>
 </div>
 
 </div>
@@ -235,79 +209,115 @@ Pet friendly environment perfect for meetings, celebrations and dining.
 <section id="gallery">
 <h2>Gallery</h2>
 
-<div class="grid">
-<img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24" width="100%">
-<img src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb" width="100%">
-<img src="https://images.unsplash.com/photo-1466978913421-dad2ebd01d17" width="100%">
+<div class="grid gallery">
+<img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24">
+<img src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb">
+<img src="https://images.unsplash.com/photo-1466978913421-dad2ebd01d17">
 </div>
-
 </section>
 
 <!-- REVIEWS -->
 <section id="reviews">
 <h2>Customer Reviews</h2>
 
+<div class="grid">
+
 <div class="card">
-<p>⭐⭐⭐⭐⭐ Amazing ambience and food!</p>
+⭐⭐⭐⭐⭐ Amazing ambience & food!
 </div>
 
 <div class="card">
-<p>⭐⭐⭐⭐⭐ Best coffee in Jaipur!</p>
+⭐⭐⭐⭐⭐ Best coffee in Jaipur!
 </div>
 
+</div>
 </section>
 
 <!-- CONTACT -->
 <section id="contact">
 <h2>Contact Us</h2>
 
-<p>
-📍 168, Ramesh Marg, Jaipur
-</p>
+<p>📍 168, Ramesh Marg, Jaipur</p>
+<p>⏰ 8 AM – 12 Midnight</p>
 
-<p>
-⏰ 8 AM – 12 Midnight
-</p>
+<button class="btn" onclick="callCafe()">Call Now</button>
 
-<button class="btn" onclick="call()">Call Now</button>
+<br><br>
 
 <iframe
-src="https://maps.google.com/maps?q=Jaipur&t=&z=13&ie=UTF8&iwloc=&output=embed">
+src="https://maps.google.com/maps?q=Jaipur&t=&z=13&ie=UTF8&iwloc=&output=embed"
+width="90%" height="300">
 </iframe>
 
 </section>
 
+<!-- BOOKING POPUP -->
+<div class="booking" id="booking">
+<div class="booking-box">
+
+<h3>Table Booking</h3>
+
+<input type="text" id="name" placeholder="Name">
+<input type="tel" id="phone" placeholder="Phone">
+<input type="date" id="date">
+<input type="time" id="time">
+
+<select id="table">
+<option>2 Seater</option>
+<option>4 Seater</option>
+<option>6 Seater</option>
+<option>Party Table</option>
+</select>
+
+<button class="btn" onclick="sendBooking()">Confirm Booking</button>
+<button class="btn" onclick="closeBooking()">Close</button>
+
+</div>
+</div>
+
 <footer>
-<p>© The Roots Cafe And Dine In</p>
+© The Roots Cafe And Dine In
 </footer>
 
 <script>
-function call(){
-window.location.href="tel:+911111111111111";
-}
-</script>
+
 function openBooking(){
-document.getElementById("bookingForm").style.display="block";
-window.scrollTo(0, document.getElementById("bookingForm").offsetTop);
+document.getElementById("booking").style.display="flex";
 }
 
 function closeBooking(){
-document.getElementById("bookingForm").style.display="none";
+document.getElementById("booking").style.display="none";
 }
 
-function submitBooking(){
+function sendBooking(){
 
-var name = document.getElementById("name").value;
-var phone = document.getElementById("phone").value;
+var name=document.getElementById("name").value;
+var phone=document.getElementById("phone").value;
+var date=document.getElementById("date").value;
+var time=document.getElementById("time").value;
+var table=document.getElementById("table").value;
 
-if(name==="" || phone===""){
-document.getElementById("bookingMsg").innerHTML="Please fill all details";
-return;
+var message=
+"🍽️ Booking Request%0A"+
+"Name: "+name+"%0A"+
+"Phone: "+phone+"%0A"+
+"Date: "+date+"%0A"+
+"Time: "+time+"%0A"+
+"Table: "+table;
+
+window.open("https://wa.me/919929644161?text="+message);
+
 }
 
-document.getElementById("bookingMsg").innerHTML=
-"✅ Booking Request Submitted! We will contact you soon.";
+function callCafe(){
+window.location.href="tel:+919999999999";
 }
+
+function orderFood(){
+window.open("https://www.zomato.com/");
+}
+
+</script>
 
 </body>
 </html>
