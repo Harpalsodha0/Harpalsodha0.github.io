@@ -1,87 +1,268 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Currency Converter</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>The Roots Cafe And Dine In</title>
 
 <style>
-body {
-    font-family: Arial;
-    text-align: center;
-    background-color: #f2f2f2;
+
+body{
+margin:0;
+font-family:Arial;
+background:#f5f1e8;
 }
 
-.container {
-    margin-top: 100px;
+/* NAVBAR */
+nav{
+position:sticky;
+top:0;
+background:#3b2f2f;
+padding:15px;
+text-align:center;
+z-index:1000;
 }
 
-input, select {
-    padding: 10px;
-    margin: 5px;
-    font-size: 16px;
+nav a{
+color:white;
+margin:15px;
+text-decoration:none;
+font-weight:bold;
 }
 
-button {
-    padding: 10px 20px;
-    font-size: 16px;
-    background-color: green;
-    color: white;
-    border: none;
-    cursor: pointer;
+nav a:hover{
+color:#d4af37;
 }
 
-h2 {
-    margin-top: 20px;
+/* HERO */
+.hero{
+height:90vh;
+background:linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+url("https://images.unsplash.com/photo-1509042239860-f550ce710b93");
+background-size:cover;
+color:white;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:20px;
 }
+
+.hero h1{
+font-size:45px;
+}
+
+.btn{
+background:#6f4e37;
+color:white;
+padding:12px 25px;
+margin:8px;
+border:none;
+border-radius:5px;
+cursor:pointer;
+}
+
+.btn:hover{
+background:#3b2f2f;
+}
+
+/* SECTION */
+section{
+padding:50px 20px;
+text-align:center;
+}
+
+h2{
+color:#3b2f2f;
+}
+
+/* MENU GRID */
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+}
+
+.card{
+background:white;
+padding:20px;
+border-radius:10px;
+box-shadow:0 2px 10px rgba(0,0,0,0.1);
+}
+
+/* CONTACT */
+iframe{
+width:100%;
+height:300px;
+border:0;
+}
+
+/* FOOTER */
+footer{
+background:#3b2f2f;
+color:white;
+padding:20px;
+text-align:center;
+}
+
 </style>
 </head>
 
 <body>
 
-<div class="container">
-    <h1>💱 Currency Converter to INR</h1>
+<!-- NAVBAR -->
+<nav>
+<a href="#home">Home</a>
+<a href="#about">About</a>
+<a href="#menu">Menu</a>
+<a href="#services">Services</a>
+<a href="#gallery">Gallery</a>
+<a href="#reviews">Reviews</a>
+<a href="#contact">Contact</a>
+</nav>
 
-    <input type="number" id="amount" placeholder="Enter Amount">
+<!-- HERO -->
+<div class="hero" id="home">
+<h1>The Roots Cafe And Dine In</h1>
+<p>Premium Coffee, Delicious Food & Vibrant Cafe Experience</p>
 
-    <br>
+<p>⭐ 4.7 Rating | 65+ Reviews</p>
 
-    <select id="currency">
-        <option value="usd">US Dollar (USD)</option>
-        <option value="eur">Euro (EUR)</option>
-        <option value="gbp">British Pound (GBP)</option>
-        <option value="jpy">Japanese Yen (JPY)</option>
-        <option value="aed">UAE Dirham (AED)</option>
-    </select>
-
-    <br><br>
-
-    <button onclick="convertMoney()">Convert to INR</button>
-
-    <h2 id="result"></h2>
+<div>
+<button class="btn">Book Table</button>
+<button class="btn">Order Online</button>
+<button class="btn" onclick="call()">Call Now</button>
+</div>
 </div>
 
+<!-- ABOUT -->
+<section id="about">
+<h2>About Us</h2>
+<p>
+The Roots Cafe And Dine In is a premium café located in Jaipur offering
+high-quality coffee, delicious food and relaxing ambience.
+Pet friendly environment perfect for meetings, celebrations and dining.
+</p>
+</section>
+
+<!-- MENU -->
+<section id="menu">
+<h2>Our Menu</h2>
+
+<div class="grid">
+
+<div class="card">
+<h3>Coffee & Beverages</h3>
+<p>Espresso – ₹150</p>
+<p>Cappuccino – ₹180</p>
+<p>Cold Coffee – ₹220</p>
+</div>
+
+<div class="card">
+<h3>Breakfast</h3>
+<p>Sandwich – ₹180</p>
+<p>Pancakes – ₹220</p>
+</div>
+
+<div class="card">
+<h3>Meals</h3>
+<p>Pasta – ₹320</p>
+<p>Pizza – ₹350</p>
+</div>
+
+<div class="card">
+<h3>Desserts</h3>
+<p>Brownie – ₹190</p>
+<p>Cheesecake – ₹250</p>
+</div>
+
+</div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+<h2>Services</h2>
+
+<div class="grid">
+
+<div class="card">
+<h3>Party Hosting</h3>
+<p>Celebrate birthdays and events with us.</p>
+</div>
+
+<div class="card">
+<h3>Outdoor Seating</h3>
+<p>Relax in premium outdoor cafe ambience.</p>
+</div>
+
+<div class="card">
+<h3>Corporate Meetings</h3>
+<p>Perfect meeting environment.</p>
+</div>
+
+<div class="card">
+<h3>Pet Friendly</h3>
+<p>Bring your pets and enjoy dining.</p>
+</div>
+
+</div>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery">
+<h2>Gallery</h2>
+
+<div class="grid">
+<img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24" width="100%">
+<img src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb" width="100%">
+<img src="https://images.unsplash.com/photo-1466978913421-dad2ebd01d17" width="100%">
+</div>
+
+</section>
+
+<!-- REVIEWS -->
+<section id="reviews">
+<h2>Customer Reviews</h2>
+
+<div class="card">
+<p>⭐⭐⭐⭐⭐ Amazing ambience and food!</p>
+</div>
+
+<div class="card">
+<p>⭐⭐⭐⭐⭐ Best coffee in Jaipur!</p>
+</div>
+
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+<h2>Contact Us</h2>
+
+<p>
+📍 168, Ramesh Marg, Jaipur
+</p>
+
+<p>
+⏰ 8 AM – 12 Midnight
+</p>
+
+<button class="btn" onclick="call()">Call Now</button>
+
+<iframe
+src="https://maps.google.com/maps?q=Jaipur&t=&z=13&ie=UTF8&iwloc=&output=embed">
+</iframe>
+
+</section>
+
+<footer>
+<p>© The Roots Cafe And Dine In</p>
+</footer>
+
 <script>
-function convertMoney() {
-
-    var amount = document.getElementById("amount").value;
-    var currency = document.getElementById("currency").value;
-
-    if(amount === "") {
-        document.getElementById("result").innerHTML = "Enter amount first";
-        return;
-    }
-
-    var rate = 0;
-
-    if(currency === "usd") rate = 83;
-    if(currency === "eur") rate = 90;
-    if(currency === "gbp") rate = 105;
-    if(currency === "jpy") rate = 0.55;
-    if(currency === "aed") rate = 22.6;
-
-    var result = amount * rate;
-
-    document.getElementById("result").innerHTML =
-        "Indian Rupees = ₹ " + result.toFixed(2);
+function call(){
+window.location.href="tel:+919999999999";
 }
 </script>
 
