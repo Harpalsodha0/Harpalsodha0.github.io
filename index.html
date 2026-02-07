@@ -1,9 +1,89 @@
-- TODO: Set the document title to the name of your application -->
-    <title>Lovable App</title>
-    <meta name="description" content="Lovable Generated Project" />
-    <meta name="author" content="Lovable" />
-    <!-- TODO: Update og:title to match your application name -->
-    <meta property="og:title" content="Lovable App" />
-    <meta property="og:description" content="Lovable Generated Project" />
-    <meta property="og:type" content="website" />
-    <meta property="og:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
+<!DOCTYPE html>
+<html>
+<head>
+<title>Currency Converter</title>
+
+<style>
+body {
+    font-family: Arial;
+    text-align: center;
+    background-color: #f2f2f2;
+}
+
+.container {
+    margin-top: 100px;
+}
+
+input, select {
+    padding: 10px;
+    margin: 5px;
+    font-size: 16px;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: green;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+h2 {
+    margin-top: 20px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <h1>💱 Currency Converter to INR</h1>
+
+    <input type="number" id="amount" placeholder="Enter Amount">
+
+    <br>
+
+    <select id="currency">
+        <option value="usd">US Dollar (USD)</option>
+        <option value="eur">Euro (EUR)</option>
+        <option value="gbp">British Pound (GBP)</option>
+        <option value="jpy">Japanese Yen (JPY)</option>
+        <option value="aed">UAE Dirham (AED)</option>
+    </select>
+
+    <br><br>
+
+    <button onclick="convertMoney()">Convert to INR</button>
+
+    <h2 id="result"></h2>
+</div>
+
+<script>
+function convertMoney() {
+
+    var amount = document.getElementById("amount").value;
+    var currency = document.getElementById("currency").value;
+
+    if(amount === "") {
+        document.getElementById("result").innerHTML = "Enter amount first";
+        return;
+    }
+
+    var rate = 0;
+
+    if(currency === "usd") rate = 83;
+    if(currency === "eur") rate = 90;
+    if(currency === "gbp") rate = 105;
+    if(currency === "jpy") rate = 0.55;
+    if(currency === "aed") rate = 22.6;
+
+    var result = amount * rate;
+
+    document.getElementById("result").innerHTML =
+        "Indian Rupees = ₹ " + result.toFixed(2);
+}
+</script>
+
+</body>
+</html>
