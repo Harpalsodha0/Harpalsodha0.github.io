@@ -318,6 +318,35 @@ window.open("https://www.zomato.com/");
 }
 
 </script>
+<script>
+function sendBooking(){
 
+var name=document.getElementById("name").value.trim();
+var phone=document.getElementById("phone").value.trim();
+var date=document.getElementById("date").value;
+var time=document.getElementById("time").value;
+var table=document.getElementById("table").value;
+
+if(name==="" || phone==="" || date==="" || time===""){
+alert("Please fill all booking details");
+return;
+}
+
+var message=
+"🍽️ Table Booking Request%0A"+
+"Name: "+name+"%0A"+
+"Phone: "+phone+"%0A"+
+"Date: "+date+"%0A"+
+"Time: "+time+"%0A"+
+"Table: "+table;
+
+window.open("https://wa.me/919929644161?text="+message,"_blank");
+}
+</script>
+<script>
+document.getElementById("date").min =
+new Date().toISOString().split("T")[0];
+</script>
+  
 </body>
 </html>
