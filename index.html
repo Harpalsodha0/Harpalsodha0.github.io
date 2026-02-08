@@ -268,6 +268,9 @@ width="90%" height="300">
 <option>6 Seater</option>
 <option>Party Table</option>
 </select>
+<p id="successMsg" style="color:green; display:none;">
+✅ Booking request sent successfully!
+</p>
 
 <button class="btn" onclick="sendBooking()">Confirm Booking</button>
 <button class="btn" onclick="closeBooking()">Close</button>
@@ -290,6 +293,7 @@ document.getElementById("booking").style.display="none";
 }
 
 function sendBooking(){
+document.getElementById("successMsg").style.display="block";
 
 var name=document.getElementById("name").value;
 var phone=document.getElementById("phone").value;
@@ -310,7 +314,7 @@ window.open("https://wa.me/919929644161?text="+message);
 }
 
 function callCafe(){
-window.location.href="tel:+919999999999";
+window.location.href="tel:+919929644161";
 }
 
 function orderFood(){
@@ -347,6 +351,18 @@ window.open("https://wa.me/919929644161?text="+message,"_blank");
 document.getElementById("date").min =
 new Date().toISOString().split("T")[0];
 </script>
+  <script>
+function openBooking(){
+document.getElementById("booking").style.display="flex";
+document.body.style.overflow="hidden";
+}
+
+function closeBooking(){
+document.getElementById("booking").style.display="none";
+document.body.style.overflow="auto";
+}
+  </script>
+  
   
 </body>
 </html>
